@@ -4,6 +4,9 @@
 
 int main()
 { /*Program to generate random numbers [0.1]*/
+  /*Park and Miller ”Minimal Standard ” random number
+generator using Schrage’s algorithm*/  
+   
     long long A = 16807;
     long long M = 2147483647;;
     long long q = 127773;
