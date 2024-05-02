@@ -1,0 +1,30 @@
+import numpy as np
+
+def calcular_ecuacion_lineal(x, y):
+    # Convertir los datos en arrays de numpy
+    x = np.array(x)
+    y = np.array(y)
+    
+    # Calcular los valores necesarios para la ecuación lineal
+    n = len(x)
+    sum_x = np.sum(x)
+    sum_y = np.sum(y)
+    sum_xy = np.sum(x * y)
+    sum_x_squared = np.sum(x**2)
+    
+    # Calcular los coeficientes de la ecuación lineal usando la fórmula de mínimos cuadrados
+    m = (n * sum_xy - sum_x * sum_y) / (n * sum_x_squared - sum_x**2)
+    b = (sum_y - m * sum_x) / n
+    
+    # Construir la ecuación lineal en forma de string
+    ecuacion = f"y = {m}x + {b}"
+    
+    return ecuacion
+
+# Ejemplo de uso
+pares_ordenados = [(1, 2), (2, 3), (3, 4), (4, 5)]  # Pares ordenados de ejemplo
+x_valores = [p[0] for p in pares_ordenados]
+y_valores = [p[1] for p in pares_ordenados]
+
+ecuacion = calcular_ecuacion_lineal(x_valores, y_valores)
+print("La ecuación lineal obtenida es:", ecuacion)
